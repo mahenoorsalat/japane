@@ -1,0 +1,1548 @@
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+
+:root {
+    --primary-color: #833996;
+    --primary-gradient: linear-gradient(90deg, #CF0064 0%, #833995 100%);
+    --secondary-color: #111111;
+    --text-color: #222222;
+    --bg-light: #fdfbff;
+    --card-bg: #ffffff;
+    --accent-bg: rgba(131, 57, 150, 0.05);
+    --border-color: #eeeeee;
+    --font-main: 'Inter', 'Noto Sans JP', sans-serif;
+    --font-hand: 'Potta One', system-ui, sans-serif;
+    /* New variable */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Layout */
+.container {
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background: white;
+    padding: 0;
+    position: relative;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    max-width: 1920px;
+    /* Full width support */
+    margin: 0 auto;
+}
+
+/* Logo */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* CSS approximation of the Wine Glass + People logo */
+.logo-icon-box {
+    width: 38px;
+    height: 38px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.logo-icon-box img,
+.logo-svg {
+    height: 100%;
+    width: auto;
+}
+
+.header-logo-text {
+    font-family: 'Montserrat', sans-serif;
+    /* Clean geometric sans */
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: #000;
+}
+
+/* Navigation */
+.header-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* Center nav links */
+    padding: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.nav-links li {
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-arrow {
+    font-size: 0.6rem;
+    color: #888;
+}
+
+/* Right Side Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    /* Elements are tightly packed or have specific margins */
+}
+
+/* Fused CTA Buttons */
+.cta-group {
+    display: flex;
+    align-items: stretch;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-right: 12px;
+}
+
+.btn-doc {
+    background: #D2006B;
+    /* Vibrant Pink */
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1.3;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-contact {
+    background: #833996;
+    /* Purple */
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1.3;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Stacked User Actions */
+.user-actions {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.btn-mypage {
+    background: #666;
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-logout {
+    background: #999;
+    color: white;
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Hamburger Menu */
+.header-menu {
+    border-left: 1px solid #eee;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #333;
+}
+
+.menu-icon-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.menu-bar {
+    width: 24px;
+    height: 2px;
+    background: #333;
+}
+
+/* Hero Layout */
+/* Hero Layout */
+.hero-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    display: grid;
+    /* Main content vs Sidebar - Sidebar needs more space for text */
+    grid-template-columns: 1fr 340px;
+    gap: 0;
+    /* Remove gap to make image flush if needed, or keep small */
+    padding-top: 20px;
+}
+
+/* Main Hero Image */
+.hero-main {
+    position: relative;
+    width: 100%;
+    border-radius: 30px;
+    /* More rounded */
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    border-radius: 30px;
+    /* Match container */
+}
+
+.hero-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Text Groups Overlay - Bottom Left of Image */
+.hero-text-group {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    /* No gap for tight packing */
+}
+
+.hero-label-box {
+    background-color: #111;
+    color: white;
+    padding: 6px 15px;
+    display: inline-block;
+    margin-bottom: 0;
+    /* Attach to bottom box */
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.hero-title-box {
+    background-color: #111;
+    color: white;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.hero-title-text {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+}
+
+/* Nav Buttons - Bottom Right of Image */
+.nav-buttons {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 10;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+}
+
+.nav-btn::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #111;
+    border-right: 2px solid #111;
+}
+
+.nav-btn.prev::before {
+    transform: rotate(-135deg);
+    margin-left: 5px;
+}
+
+.nav-btn.next::before {
+    transform: rotate(45deg);
+    margin-right: 5px;
+}
+
+
+/* -- New Sidebar Styles -- */
+.hero-sidebar {
+    position: relative;
+    padding: 20px 0 20px 40px;
+    /* Left padding */
+    display: flex;
+    flex-direction: column;
+
+    height: 90%;
+    /* Not full height to look like a card? */
+    align-self: center;
+    margin-left: -180px;
+    /* Overlap the image */
+    z-index: 20;
+    border-radius: 30px;
+    /* rounded styles */
+    /* shadow for depth */
+}
+
+.hero-text-art {
+    width: 100%;
+    transform: translate(52px, -50px);
+    height: auto;
+    object-fit: contain;
+    max-height: 84%;
+    display: block;
+    margin-bottom: auto;
+}
+
+.hero-content-layout {
+    display: flex;
+    flex-direction: row;
+    /* Horizontal layout of vertical bars */
+    justify-content: flex-start;
+    /* Align left within sidebar */
+    gap: 20px;
+    margin-top: 40px;
+    /* Start a bit down */
+    position: relative;
+}
+
+/* Left Column: Guide Text */
+.hero-col-left {
+    display: flex;
+    flex-direction: column;
+    /* Vertical stack context */
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.vertical-guide-text {
+    writing-mode: vertical-rl;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #111;
+    margin: 0;
+    font-family: var(--font-hand);
+    /* Hand-drawn style */
+    line-height: 1.2;
+}
+
+.badge-group-new {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.badge-black {
+    background: #fff;
+    /* White background */
+    color: #111;
+    /* Black text */
+    width: 60px;
+    height: 100px;
+    /* Elongated pill shape */
+    border: 3px solid #111;
+    /* Thick border */
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    /* Organic/hand-drawn shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    writing-mode: vertical-rl;
+    padding: 10px 0;
+    font-family: var(--font-hand);
+}
+
+/* Right Column: Main Big Title */
+.hero-col-right {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    position: relative;
+    height: 100%;
+}
+
+.vertical-main-title {
+    writing-mode: vertical-rl;
+    font-size: 5rem;
+    font-weight: 400;
+    /* Regular weight for Potta One is heavy enough */
+    line-height: 1.1;
+    letter-spacing: 0;
+    color: #111;
+    font-family: var(--font-hand);
+    /* Hand-drawn look */
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.speech-bubble-top {
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: white;
+    border: 4px solid #111;
+    /* Thicker border */
+    padding: 15px 12px;
+    border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+    /* Very organic speech bubble */
+    position: absolute;
+    top: -30px;
+    right: -20px;
+    writing-mode: vertical-rl;
+    z-index: 2;
+    box-shadow: 4px 4px 0 #111;
+    transform: rotate(15deg);
+    font-family: var(--font-hand);
+}
+
+.hero-eng-subtitle {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    font-family: serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #111;
+    line-height: 1.2;
+    text-align: right;
+}
+
+
+/* Supported By Section - Sidebar Positioning */
+.hero-supported {
+    position: absolute;
+    bottom: 40px;
+    /* Align with bottom */
+    right: 0;
+    /* Align right */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-supported span {
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+.logo-stripe {
+    display: none;
+}
+
+/* Add KARIRU logo specifically for supported by if needed, or use image */
+.supported-logo-img {
+    height: 24px;
+    width: auto;
+}
+
+/* Responsive Adjustments: Removed display none for sidebar to keep layout */
+@media (max-width: 1200px) {
+    .container {
+        /* Fluid width below 1280px essentially */
+        max-width: 100%;
+    }
+
+    .hero-wrapper {
+        /* Keep grid layout but allow shrinking */
+        grid-template-columns: 1fr 300px;
+        /* Shrink sidebar slightly? Or keep ratio? */
+    }
+
+    .shop-grid {
+        /* Always 5 columns */
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 15px;
+        /* Smaller gap */
+    }
+
+    .intro-bg-shape {
+        /* Responsive scaling for background glass */
+        width: 30vw;
+        /* Scale with viewport */
+        height: auto;
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-wrapper {
+        /* Still try to keep layout if forced, but might need scaling transform to fit */
+        grid-template-columns: 1fr 200px;
+        /* Sidebar gets smaller */
+    }
+
+    .vertical-main-title {
+        font-size: 3rem;
+    }
+
+    .hero-col-left {
+        transform: scale(0.8);
+        transform-origin: top center;
+    }
+}
+
+/* Introduction */
+.introduction {
+    padding: 150px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Abstract Background Shapes - Using img tags now */
+.intro-bg-shape {
+    position: absolute;
+    /* No width/height here, let img define it naturally */
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.4;
+    /* Subtle watermark effect */
+}
+
+/* Left Vector */
+.shape-left {
+    bottom: -78px;
+    right: -13px;
+    transform: none;
+}
+
+.shape-right {
+    bottom: 48px;
+    left: 38px;
+    transform: none;
+}
+
+.intro-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+/* Category Section Headers with Images */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: flex-start;
+    /* Left align or center? Intro is center, but sections usually left? */
+    /* Screenshot shows left aligned often, but let's check. 
+       Actually, previous code had .section-header { text-align: center; } likely inherited or default.
+       I will assume left aligned as per screenshot showing headers aligned with content start? 
+       No, screenshot shows them aligned with the grid start. */
+}
+
+.section-icon-img {
+    height: 40px;
+    /* Adjust size based on design scaling */
+    width: auto;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+    line-height: 1.2;
+    /* Ensure one line if possible */
+    white-space: nowrap;
+}
+
+/* Responsive adjust for mobile to allow wrap if screen is tiny */
+@media (max-width: 600px) {
+    .section-title {
+        white-space: normal;
+        font-size: 1.2rem;
+    }
+
+    .section-icon-img {
+        height: 40px;
+    }
+}
+
+/* Introduction Wine Glass Icon - Refined (Old CSS kept if used elsewhere, otherwise can be ignored) */
+.intro-glass-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    border: 2px solid #9D4CA8;
+    /* Slightly lighter purple for outline */
+    border-radius: 4px 4px 24px 24px;
+    position: relative;
+    background: transparent;
+}
+
+.intro-glass-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    background: #9D4CA8;
+}
+
+.intro-glass-icon::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 2px;
+    background: #9D4CA8;
+}
+
+.intro-label {
+    color: #9D4CA8;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.intro-text {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: #333;
+    line-height: 2.8;
+    /* More loose line height */
+    font-weight: 500;
+    font-feature-settings: "palt";
+}
+
+
+/* Shop Grid & Cards */
+.shop-grid {
+    display: grid;
+    /* Force 5 columns */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    margin-bottom: 80px;
+    align-items: start;
+}
+
+/* Supported Logo Alignment */
+.supported-logo {
+    display: flex;
+    align-items: center;
+}
+
+.shop-card {
+    background: transparent;
+    border: none;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 20px;
+    position: relative;
+    cursor: pointer;
+    /* Clickable cursor */
+    text-decoration: none;
+    /* If A tag */
+}
+
+/* Hover Effect */
+.shop-card:hover .card-name {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+/* Card Image */
+.card-img-wrapper {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.shop-card:hover .card-img {
+    transform: scale(1.05);
+}
+
+/* Card Content */
+/* Card Content - Responsive Font Sizing */
+.card-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.4;
+    color: #111;
+}
+
+.card-tag {
+    align-self: flex-start;
+    background: #833996;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.card-desc {
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 1280px) {
+    .card-name {
+        font-size: 1rem;
+    }
+
+    .card-desc {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .card-name {
+        font-size: 0.8rem;
+    }
+
+    .card-tag {
+        font-size: 0.6rem;
+        padding: 3px 8px;
+    }
+
+    .card-desc {
+        font-size: 0.65rem;
+        line-height: 1.4;
+    }
+}
+
+/* Arrow and Divider - The specific design element */
+.card-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
+    /* Push to bottom */
+}
+
+.card-arrow-icon {
+    width: 30px;
+    height: 15px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.card-arrow-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    border-bottom: 1px solid #333;
+    /* Darker arrow */
+    border-right: 1px solid #333;
+    /* Darker arrow */
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.card-divider-dot {
+    width: 100%;
+    border-bottom: 2px dotted #ddd;
+}
+
+/* Detailed Shop Info */
+/* Detailed Shop Info */
+.shop-detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 150px;
+    margin-bottom: 150px;
+}
+
+.shop-detail-header {
+    text-align: center;
+    margin-bottom: 80px;
+    margin-top: 100px;
+    display: flex;
+    /* New: Flex layout */
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Intro icon image sizing */
+.intro-icon-img {
+    width: 40px;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.detail-section-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--secondary-color);
+}
+
+.shop-detail-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 60px;
+    border: 1px solid var(--secondary-color);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.detail-number {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 1rem;
+    font-family: 'Inter';
+    color: #999;
+}
+
+.detail-main-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.detail-title-icon {
+    width: 30px;
+    height: auto;
+    margin-top: 5px;
+    /* Visual alignment with text cap height */
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.detail-row.reverse {
+    direction: rtl;
+    /* simple trick to swap columns, but content needs ltr */
+}
+
+.detail-row.reverse>* {
+    direction: ltr;
+    /* reset content direction */
+}
+
+.detail-img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.detail-text {
+    font-size: 1rem;
+    line-height: 2;
+    color: #444;
+}
+
+.detail-link-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: -30px;
+    /* pull up closer to content above */
+    font-size: 0.8rem;
+}
+
+.detail-link {
+    color: #444;
+    text-decoration: underline;
+}
+
+.info-box {
+    background: rgba(131, 57, 150, 0.05);
+    /* User specified light purple bg */
+    border: 1px solid var(--secondary-color);
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.info-label-tag {
+    position: absolute;
+    top: -22px;
+    left: 30px;
+    background: #fff;
+    border: 1px solid var(--secondary-color);
+    padding: 8px 25px;
+    border-radius: 24px;
+    font-weight: 700;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 15px 30px;
+    font-size: 0.9rem;
+}
+
+.info-title {
+    font-weight: 700;
+}
+
+.map-link {
+    color: #043FFF;
+    text-decoration: underline;
+}
+
+/* Mobile adjustments */
+@media (max-width: 992px) {
+
+    .detail-row,
+    .detail-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        direction: ltr;
+        /* Reset direction */
+    }
+
+    .shop-detail-card {
+        padding: 30px;
+        gap: 40px;
+    }
+}
+
+/* Article Area Responsive Rules */
+/* 1440px+ & 1440-1280px: Fixed Design Size */
+.shop-detail-section .container {
+    max-width: 1280px;
+    /* Assuming 1280 is the core design content width */
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* 1280px-800px: Scale according to browser size */
+@media (max-width: 1280px) {
+    .shop-detail-section .container {
+        max-width: 100%;
+        padding: 0 40px;
+        /* Add padding when fluid */
+    }
+}
+
+@media (max-width: 800px) {
+    .shop-detail-section .container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .info-grid {
+        grid-template-columns: 100px 1fr;
+    }
+}
+
+/* Footer */
+/* =========================================
+   Promotion Section (CTA)
+   ========================================= */
+.promotion-section {
+    background: linear-gradient(135deg, #D2006B 0%, #833996 100%);
+    padding: 60px 0;
+    margin-top: 80px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.promotion-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.promotion-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.promo-sub-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+}
+
+.promo-logo-group {
+    display: flex;
+    align-items: flex-end;
+    /* Align baseline */
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.promo-logo-icon svg {
+    height: 80px;
+    width: auto;
+    fill: white;
+}
+
+.promo-logo-text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.promo-logo-main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.05em;
+}
+
+.promo-logo-sub {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.promo-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    width: 280px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-promo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-promo.download {
+    background-color: #C2185B;
+    /* Darker Pink */
+    background: linear-gradient(to right, #D81B60, #AD1457);
+}
+
+.btn-promo.contact {
+    background-color: #7B1FA2;
+    /* Darker Purple */
+    background: linear-gradient(to right, #8E24AA, #6A1B9A);
+}
+
+.btn-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-label-small {
+    font-size: 0.75rem;
+    font-weight: 700;
+    opacity: 0.9;
+    margin-bottom: 2px;
+}
+
+.btn-label-large {
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+}
+
+.btn-icon-box {
+    background: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    /* Rounded square based on image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.btn-promo.download .btn-icon {
+    color: #D81B60;
+}
+
+.btn-promo.contact .btn-icon {
+    color: #8E24AA;
+}
+
+/* Promo Image Area */
+.promotion-image-area {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+}
+
+/* Main Promotion Image */
+.promo-img-main {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Optional: If the user wants it to overlap or stand out */
+    max-height: 400px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    mix-blend-mode: multiply;
+    /* Blends white background */
+}
+
+
+/* =========================================
+   Site Footer
+   ========================================= */
+.site-footer {
+    background-color: #000;
+    color: white;
+    padding: 60px 0 30px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 40px;
+}
+
+.footer-col-title {
+    font-size: 0.9rem;
+    font-weight: 900;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 15px;
+}
+
+.footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: #D2006B;
+}
+
+/* Footer Buttons Column */
+.footer-col-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Reuse Promo Button Styles but smaller/adjusted */
+.btn-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    transition: opacity 0.2s;
+}
+
+.btn-footer:hover {
+    opacity: 0.9;
+}
+
+.btn-footer.download {
+    background: #D81B60;
+    /* Solid color matching CTA */
+}
+
+.btn-footer.contact {
+    background: #7B1FA2;
+}
+
+.btn-footer .btn-icon-box {
+    width: 24px;
+    height: 24px;
+}
+
+.btn-footer .btn-icon {
+    font-size: 1rem;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-bottom-left {
+    max-width: 600px;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo svg {
+    height: 40px;
+    width: auto;
+}
+
+/* Use specific classes for SVG paths in footer to make them white */
+.footer-logo-svg path {
+    stroke: white !important;
+    fill: none !important;
+}
+
+.footer-logo-svg line {
+    stroke: white !important;
+}
+
+.footer-logo-svg circle {
+    fill: white !important;
+    stroke: none !important;
+}
+
+/* Note: Original SVG had stroke/fill logic, we might need to inline a modified SVG or filter it */
+
+.footer-meta p {
+    font-size: 0.7rem;
+    color: #aaa;
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.footer-bottom-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.footer-legal-links {
+    margin-bottom: 15px;
+}
+
+.footer-legal-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.75rem;
+    margin-left: 20px;
+}
+
+.footer-legal-links a:hover {
+    color: white;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    color: white;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   Floating CTA Button
+   ========================================= */
+.floating-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: white;
+    color: #D2006B;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 999;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid #D2006B;
+}
+
+.floating-cta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.floating-cta .small {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0 2px;
+    font-weight: normal;
+}
+
+.circle-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: #D2006B;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .promotion-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .promotion-content {
+        margin-bottom: 40px;
+    }
+
+    .promo-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .promotion-image-area {
+        justify-content: center;
+    }
+
+    .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-bottom-right {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-legal-links a {
+        margin-left: 0;
+        margin-right: 20px;
+    }
+
+    .shop-detail-card {
+        padding: 30px;
+        gap: 40px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .header-inner {
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Image Logo Styles */
+.header-logo-img {
+    height: 48px;
+    /* Slightly larger for header */
+    width: auto;
+    display: block;
+}
+
+.supported-logo-img {
+    height: 24px;
+    width: auto;
+    display: block;
+}
+
+.promo-logo-img {
+    height: 80px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    /* Assume user image is black text, make white for promo */
+}
+
+.footer-logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    /* Make white for black footer */
+}
